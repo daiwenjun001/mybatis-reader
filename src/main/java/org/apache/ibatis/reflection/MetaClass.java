@@ -74,8 +74,15 @@ public class MetaClass {
     return prop.length() > 0 ? prop.toString() : null;
   }
 
+  /**
+   * 根据属性名获取属性, 是否开启驼峰命名规则
+   * @param name
+   * @param useCamelCaseMapping
+   * @return
+   */
   public String findProperty(String name, boolean useCamelCaseMapping) {
     if (useCamelCaseMapping) {
+      // 下划线转驼峰, 这里只做了下划线处理是因为在后面取值时,忽略了大小写,所以不需要做字母大小写处理
       name = name.replace("_", "");
     }
     return findProperty(name);

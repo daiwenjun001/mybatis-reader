@@ -392,6 +392,11 @@ public class Reflector {
     }
   }
 
+  /**
+   * 获取方法签名
+   * @param method
+   * @return
+   */
   private String getSignature(Method method) {
     StringBuilder sb = new StringBuilder();
     Class<?> returnType = method.getReturnType();
@@ -528,6 +533,7 @@ public class Reflector {
   }
 
   public String findPropertyName(String name) {
+    //忽略大小写获取属性值
     return caseInsensitivePropertyMap.get(name.toUpperCase(Locale.ENGLISH));
   }
 }
